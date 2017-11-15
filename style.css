@@ -1,0 +1,225 @@
+/*   more css tricks: https://css-tricks.com/snippets/css/a-guide-to-flexbox/    */
+
+
+/*box-sizing border-box */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+ .box {
+    color: black;
+    font-weight: bold;
+    font-size: 100px; 
+    /* font-size: 25px; */
+    text-align: center; 
+    /* flex: 1; */
+    /* text-shadow: 4px 4px 0 rbga(0,0,0,0,1); */
+
+    /* we are setting the width to 33.3+% because we want the items to be in groups of 3 */
+    /* width: 33.333%; */
+
+    /* when the width is 33.3+% and you then add in a margin, 
+    it will actually break the flex box because you are going over 100% */
+
+    /* so if you wanted to add in margin, you can actually do calc. See below */
+    /* width:calc(33.333% - 20px);
+    margin: 10px; */
+    /* the reason why you are doing -20 is because it is 10 on both sides */
+
+    /* padding: 10px; */
+    /* border: 1px solid black; */
+
+    /*starting from scratch*/
+
+    /* flex: 1 will just set the width to be even across all of the items
+    and will stretch all the way across the screen */
+    /* flex:1; */
+
+    /* flex-grow:1;
+    flex-shrink:1;
+    flex-basis: 1; */
+    /* flex-grow:;
+    flex-shrink:;
+    flex-basis:: */
+    /* flex-basis: 250px;
+    flex-grow: 1; */
+}
+/* .box3{flex-grow: 5;} */
+/* .box1{flex-basis: 400px; flex-grow: 10; flex-shrink: 10;} */
+/* .box1{flex: 10 5 400px;} */
+/* .box2{flex-basis: 400px; flex-grow: 1;  flex-shrink: 1;} */
+/*this is the short hand for it */
+/* .box2{flex: 1 1 400px;} */
+
+/*what this will do is put box4 at the very end since the order default is 0*/
+/* .box4{order: 1} */
+
+.box1 { background-color: red }
+.box2 { background-color: orange }
+.box3 { background-color: yellow }
+.box4 { background-color: yellowgreen }
+.box5 { background-color: green }
+.box6 { background-color: aquamarine }
+.box7 { background-color: blue }
+.box8 { background-color: violet }
+.box9 { background-color: darkviolet }
+.box10 { background-color: purple }
+
+
+/* This is where we start to write out our flexbox */
+.container {
+    /* display: flex; */
+    /* display: inline-flex; */
+    /* border: 10px solid black; */
+    /* vh is viewport height which is essentially like using % */
+    /* min-height: 100vh; */
+
+    /* when using row (which is the default), it is left to right, 
+    when using column, it is top down,
+    when using row-reverse, it is right to left.
+    when using column-reverse, it is down to top */
+
+    /* flex-direction: row; */
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+
+    /* flex-wrap: nowrap is by default */
+    /* flex-wrap: nowrap; */
+
+    /* flex-wrap: wrap makes it say "okay we need to stretch across the container,
+     but we also need to split it up among the number of items*/
+
+     /*flex-wrap: wrap-reverse or whatever it is called, is very similar, however it is just in reverse,
+      so it would start at the bottom*/
+
+    /* to get rid of that white space that would be appearing on the sides,
+    you would need to set the width of the item to a %,
+    so say there are 10 items and you would want the items to be split into groups of 3,
+    you would set the width to 33.333333333333% */
+    /* flex-wrap: wrap; */
+
+
+
+
+    /* starting from scratch down here */
+    /* display: flex; */
+
+    /* justify-content: flex-start is default */
+    /* justfiy-content: then whatever basically pushes everything to that direction.
+    so if you used flex-end, it would push it to the end of the "row",
+    and if you used start (which again is the default),
+    it will start at the left. If you do center, 
+    then it pushes everything towards the center. pretty easy to understand really.
+    if you use justify-content: space-between it evens out the 
+    space between each item, very similar to space around */
+
+    /* in order to use justify-content: space between for columns,
+    you would need to have the content inside of the box to be a certain height, 
+    or make the container larger */
+
+    /* justify-content: space-between;
+    border: 10px solid black;
+    min-height: 100vh;
+    flex-direction: column; */
+
+    /* display: flex;
+    border: 10px solid black; */
+    /*baseline keeps the baseline to be the same among all items. 
+    so if you drew a straight line across all items, it would be a perfect line*/
+    /* align-items: baseline;
+    height: 100vh; */
+
+    /* display: flex;
+    border: 10px solid black;
+    height: 100vh;
+    justify-content: center; */
+    /*align content makes it soo */
+    /* flex-wrap: wrap;
+    align-content: center; */
+
+    /* so we have 10 items but they are in columns of 3,
+     so say we want that last item (10) to be in the center, 
+    we would add justify-content: center */
+
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* border: 10px solid black; */
+    /* height: 100vh; */
+    /* align-items: flex-start; */
+    /* align-content: flex-start; */
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100vh;
+    border: 10px solid black;
+}
+
+/* .box7{align-self: flex-end} */
+
+/* .box1{font-size: 10px;}
+.box2{font-size: 40px;}
+.box3{font-size: 80px;}
+.box4{font-size: 160px;} */
+
+/* Since all of the other boxes have a flex of 1, 
+making box2 have a flex of 2, makes it 2x the other boxes' size */
+/* .box2{flex: 2;} */
+
+/* 
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-family: sans-serif;
+    margin: 0;
+    background-color: lightskyblue;
+}
+
+a {
+    color: white;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-decoration: none;
+    background: rgba(0,0,0,0,2);
+    padding: 20px 5px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+a:hover {
+    background: rgba(0,0,0,0,3);
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.flex-nav ul {
+    border: 1px solid black;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media all and (max-width: 1000px) {
+
+}
+
+@media all and (max-width: 500px) {
+
+} */
